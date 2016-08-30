@@ -5,6 +5,7 @@
  */
 
 package interfaz;
+import clases.Persona;
 
 /**
  *
@@ -15,6 +16,8 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
+    Persona v[]= new Persona[5];
+    int cont=0;
     public principal() {
         initComponents();
     }
@@ -86,6 +89,11 @@ public class principal extends javax.swing.JFrame {
 
         cmdGuardar.setBackground(new java.awt.Color(204, 255, 255));
         cmdGuardar.setText("Guardar");
+        cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdGuardarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 150, 170));
@@ -118,6 +126,21 @@ public class principal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(591, 421));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
+ Persona p;
+ long identificacion;
+ String primer_nombre;
+ String primer_apellido;
+ 
+ identificacion=Long.parseLong(txtIdentificacion.getText());
+ primer_nombre=txtPrimerNombre.getText();
+ primer_apellido=txtPrimerApellido.getText();
+ 
+ p=new Persona(identificacion,  primer_nombre, primer_apellido);
+ 
+        
+    }//GEN-LAST:event_cmdGuardarActionPerformed
 
     /**
      * @param args the command line arguments
